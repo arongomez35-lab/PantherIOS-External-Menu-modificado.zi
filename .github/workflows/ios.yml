@@ -1,0 +1,15 @@
+name: Build IPA
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descomprimir proyecto
+        run: |
+          unzip -o *.zi* -d proyecto || unzip -o *.zip -d proyecto || true
+          ls -R proyecto | head -n 100
+      - name: Build IPA
+        run: |
+          cd proyecto
+          find . -name "*.xcodeproj" -o -name "*.xcworkspace" | head
