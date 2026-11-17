@@ -9,8 +9,7 @@ jobs:
         run: |
           unzip -o *.zip -d proyecto
           cd proyecto
-          xcodebuild -list -project ThreeOneOSFive.xcodeproj
-          xcodebuild -project ThreeOneOSFive.xcodeproj -scheme ThreeOneOSFive -sdk iphoneos -configuration Release CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" BUILD_DIR=$PWD/build
+          xcodebuild -project ThreeOneOSFive.xcodeproj -scheme 3105 -sdk iphoneos -configuration Release CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" BUILD_DIR=$PWD/build
           mkdir -p Payload
           cp -r build/Release-iphoneos/*.app Payload/
           zip -r ThreeOneOSFive.ipa Payload
